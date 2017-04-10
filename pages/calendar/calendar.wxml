@@ -1,0 +1,32 @@
+<!--pages/calendar/calendar.wxml-->
+
+
+<view class="calendar">
+  <view class="calendar-header">
+    <image src="/images/date-left.png" bindtap="bindLastMonth"/>
+    <picker value="{{date}}"
+          bindchange="bindPickerChange"
+          fields="month"
+          mode="date"
+          start="1990-01-01"
+          end="2020-12-31">
+      <view class="picker">{{dateCN}}</view>
+    </picker>
+    <image src="/images/date-right.png" bindtap="bindNextMonth"/>
+  </view>
+
+  <view class="week">
+    <view wx:for="{{week}}" wx:key="{{item}}" class="week-item">
+      <text>{{item}}</text>
+    </view>
+  </view>
+
+  <view class="month">
+    <view wx:for="{{months}}" wx:key="{{item}}" class="month-item" data-item="{{item}}" bindtap="click">
+        <text>{{item.num}}</text>
+    </view>
+  </view>
+
+</view>
+
+
